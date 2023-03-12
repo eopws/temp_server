@@ -13,6 +13,7 @@ app.get('/get', (req, res) => {
 })
 
 app.post('/set', jsonParser, (req, res) => {
+    console.log(req.body)
     accounts.push(req.body);
 
     res.send('success')
