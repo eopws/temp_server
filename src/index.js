@@ -8,7 +8,11 @@ try {
   const urlencodedParser = bodyParser.urlencoded({ extended: false })
   
   const accounts = [];
-  
+
+  app.get('/get', (req, res) => {
+    res.send(JSON.stringify(accounts))
+  })
+
   app.get('/get', (req, res) => {
     res.send(JSON.stringify(accounts))
   })
