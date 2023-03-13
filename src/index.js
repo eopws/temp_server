@@ -7,10 +7,15 @@ try {
   const jsonParser = bodyParser.json()
   const urlencodedParser = bodyParser.urlencoded({ extended: false })
   
-  const accounts = [];
+  let accounts = [];
 
-  app.get('/get', (req, res) => {
-    res.send(JSON.stringify(accounts))
+  app.get('/', (req, res) => {
+    res.send('tot')
+  })
+
+  app.get('/clear', (req, res) => {
+    accounts = []
+    res.send('success')
   })
 
   app.get('/get', (req, res) => {
@@ -18,7 +23,6 @@ try {
   })
   
   app.post('/set', jsonParser, (req, res) => {
-      console.log(req.body)
       accounts.push(req.body);
   
       res.send('success')
